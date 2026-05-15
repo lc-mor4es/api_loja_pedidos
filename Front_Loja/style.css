@@ -1,0 +1,400 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY MATRIX */
+body {
+    background: #000;
+    color: #00ff88;
+    font-family: "Courier New", monospace;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 30px 20px;
+
+    overflow-x: hidden;
+}
+
+/* GRID MATRIX */
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background:
+        linear-gradient(rgba(0,255,120,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,120,0.08) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+
+    z-index: -2;
+}
+
+/* SCANLINE CRT */
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.04),
+        rgba(255,255,255,0.04) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+
+    pointer-events: none;
+
+    z-index: 999;
+}
+
+/* CONTAINERS */
+.container,
+.container2 {
+    width: 100%;
+    max-width: 750px;
+
+    background: rgba(0, 20, 0, 0.7);
+
+    border: 2px solid #00ff88;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    margin-top: 30px;
+
+    box-shadow:
+        0 0 10px #00ff88,
+        0 0 25px rgba(0,255,120,0.4);
+}
+
+/* TITULOS */
+h1 {
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    color: #00ff88;
+
+    text-shadow:
+        0 0 5px #00ff88,
+        0 0 15px #00ff88,
+        0 0 30px #00ff88;
+}
+
+h2 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+
+    color: #00ff88;
+}
+
+/* INPUTS */
+input {
+    width: 100%;
+
+    padding: 14px;
+
+    background: #050505;
+
+    border: 2px solid #00ff88;
+
+    border-radius: 8px;
+
+    color: #00ff88;
+
+    font-size: 16px;
+
+    outline: none;
+
+    box-shadow:
+        inset 0 0 10px rgba(0,255,120,0.2),
+        0 0 10px rgba(0,255,120,0.3);
+}
+
+input::placeholder {
+    color: rgba(0,255,120,0.5);
+}
+
+/* BOTÕES GERAIS */
+button {
+    position: relative;
+
+    overflow: hidden;
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    font-family: "Courier New", monospace;
+
+    transition: 0.2s ease;
+
+    margin: 5px;
+}
+
+/* SCANLINE NOS BOTÕES */
+button::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.08) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+
+    pointer-events: none;
+}
+
+/* HOVER */
+button:hover {
+    transform: scale(1.05);
+
+    filter: brightness(1.2);
+}
+
+/* BOTÃO CONSULTAR PEDIDOS */
+a button {
+    background: #014d1f;
+
+    color: #00ff88;
+
+    box-shadow:
+        0 0 10px #00aa44,
+        0 0 20px rgba(0,255,120,0.3);
+}
+
+/* BOTÃO CADASTRAR */
+.container2 button:first-of-type {
+    background: #00aa44;
+
+    color: #000;
+
+    box-shadow:
+        0 0 10px #00ff88,
+        0 0 20px rgba(0,255,120,0.5);
+}
+
+/* BOTÃO ATUALIZAR */
+.container2 button:last-of-type {
+    background: #0066ff;
+
+    color: white;
+
+    box-shadow:
+        0 0 10px #3399ff,
+        0 0 20px rgba(0,120,255,0.5);
+}
+
+/* LISTA CLIENTES */
+#cliente-lista {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+/* ITEM CLIENTE */
+#cliente-lista li {
+    background: rgba(0,255,120,0.08);
+
+    border: 1px solid #00ff88;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    box-shadow:
+        0 0 10px rgba(0,255,120,0.3);
+}
+
+/* TEXTO CLIENTE */
+#cliente-lista li span {
+    color: #00ff88;
+
+    font-size: 18px;
+
+    text-shadow: 0 0 5px #00ff88;
+}
+
+/* CONTAINER DOS BOTÕES */
+#cliente-lista li div {
+    display: flex;
+
+    gap: 10px;
+}
+
+/* BOTÃO EDITAR */
+#cliente-lista button.btn-editar {
+    background-color: #0077ff !important;
+
+    color: white !important;
+
+    border: 1px solid #4db8ff !important;
+
+    padding: 10px 16px;
+
+    box-shadow:
+        0 0 8px #3399ff,
+        0 0 15px rgba(0,120,255,0.5) !important;
+}
+
+/* BOTÃO DELETAR */
+#cliente-lista button.btn-deletar {
+    background-color: #ff0033 !important;
+
+    color: white !important;
+
+    border: 1px solid #ff4d6d !important;
+
+    padding: 10px 16px;
+
+    box-shadow:
+        0 0 8px #ff3355,
+        0 0 15px rgba(255,0,50,0.5) !important;
+}
+
+/* RESPONSIVO */
+@media (max-width: 700px) {
+
+    #cliente-lista li {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    #cliente-lista li div {
+        width: 100%;
+    }
+
+    #cliente-lista li button {
+        flex: 1;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+/* Alinhamento dos botões de cadastro */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Forçar cores nos botões da lista */
+.btn-editar {
+    background: #0066ff !important;
+    color: white !important;
+    box-shadow: 0 0 15px rgba(0, 102, 255, 0.6) !important;
+    border: 1px solid #3399ff !important;
+}
+
+.btn-deletar {
+    background: #ff0033 !important;
+    color: white !important;
+    box-shadow: 0 0 15px rgba(255, 0, 51, 0.6) !important;
+    border: 1px solid #ff4d6d !important;
+}
+
+/* Ajuste no botão Atualizar do formulário para manter o padrão azul */
+.btn-atualizar {
+    background: #0066ff !important;
+    color: white !important;
+}
+
+/* Botão de voltar (Clientes) verde escuro como o original */
+.btn-voltar {
+    background: #014d1f !important;
+    color: #00ff88 !important;
+}
+
+/* Ajuste fino na lista para o texto não ficar colado nos botões */
+#cliente-lista li span {
+    flex: 1;
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+/* --- AJUSTE DOS BOTÕES DO FORMULÁRIO (HOME.HTML) --- */
+
+.form-actions {
+    display: flex;
+    justify-content: center; /* Centraliza os botões */
+    align-items: center;
+    gap: 15px;               /* Espaço entre os botões */
+    margin-top: 20px;
+}
+
+/* Botão CLIENTES (Voltar/Navegação) - Verde Escuro */
+.btn-voltar {
+    background: #014d1f !important;
+    color: #00ff88 !important;
+    border: 1px solid #00ff88 !important;
+    box-shadow: 0 0 10px rgba(0, 255, 120, 0.3) !important;
+}
+
+/* Botão CADASTRAR - Verde Neon (Igual ao seu padrão original) */
+.btn-cadastrar {
+    background: #00aa44 !important;
+    color: #000 !important;
+    box-shadow: 0 0 15px #00ff88, 0 0 25px rgba(0, 255, 120, 0.5) !important;
+}
+
+/* Botão ATUALIZAR - Azul Neon */
+.btn-atualizar, .btn-editar {
+    background: #0066ff !important;
+    color: #fff !important;
+    box-shadow: 0 0 15px #3399ff, 0 0 25px rgba(0, 102, 255, 0.5) !important;
+}
+
+/* Botão DELETAR - Vermelho Neon */
+.btn-deletar {
+    background: #ff0033 !important;
+    color: #fff !important;
+    box-shadow: 0 0 15px #ff3355, 0 0 25px rgba(255, 0, 50, 0.5) !important;
+}
+
+/* Ajuste para que os botões tenham o mesmo tamanho no mobile */
+@media (max-width: 600px) {
+    .form-actions {
+        flex-direction: column;
+    }
+    .form-actions button {
+        width: 100%;
+    }
+}

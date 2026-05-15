@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Loja de João - Clientes</title>
+</head>
+<body>
+
+    <div class="nav-header">
+        <a href="pedidos.html">
+            <button class="btn-nav">CONSULTAR PEDIDOS</button>
+        </a>
+    </div>
+
+    <div class="container">
+        <h1>Consulta de Clientes</h1>
+        <ul id="cliente-lista"></ul>
+    </div>
+
+    <div class="container2">
+        <h1>Cadastro de Clientes</h1>
+
+        <div class="input-group">
+            <h2>Nome</h2>
+            <input type="text" id="nomecliente" placeholder="Digite o nome">
+        </div>
+
+        <div class="input-group">
+            <h2>Email</h2>
+            <input type="text" id="emailcliente" placeholder="Digite o email">
+        </div>
+
+        <br>
+
+        <div class="form-actions">
+            <button class="btn-voltar" onclick="window.location.href='pedidos.html'">Pedidos</button>
+            <button class="btn-cadastrar" onclick="cadastrarcliente()">Cadastrar</button>
+            <button class="btn-atualizar" onclick="atualizarcliente()">Atualizar</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
